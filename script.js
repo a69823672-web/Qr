@@ -131,3 +131,30 @@ function removeItem(index){
 
 // اجرای اولیه
 render();
+function filterMenu(category){
+
+const cards=document.querySelectorAll(".card");
+
+cards.forEach(card=>{
+
+if(category==="همه"){
+
+card.style.display="block";
+
+}else{
+
+if(card.dataset.category===category){
+
+card.style.display="block";
+
+}else{
+
+card.style.display="none";
+
+}
+
+}
+
+});
+
+}
