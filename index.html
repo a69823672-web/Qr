@@ -12,27 +12,18 @@
 <body>
 
 <header>
-  <div class="categories">
-
-<button onclick="filterMenu('همه')">همه</button>
-
-<button onclick="filterMenu('گرم')">نوشیدنی گرم بر پایه قهوه</button>
-
-<button onclick="filterMenu('سرد')">نوشیدنی سرد بر پایه قهوه</button>
-
-<button onclick="filterMenu('شرکتی')">نوشیدنی شرکتی</button>
-
-<button onclick="filterMenu('تنقلات')">تنقلات</button>
-
-<button onclick="filterMenu('سایر')">سایر</button>
-
-  </div>
-  
-
 
 <h1>کافه پرواز</h1>
-
 <p>شرکت هوانوردی عقاب آسمان شمال</p>
+
+<div class="categories">
+    <button onclick="filterMenu('همه')">همه</button>
+    <button onclick="filterMenu('گرم')">نوشیدنی گرم بر پایه قهوه</button>
+    <button onclick="filterMenu('سرد')">نوشیدنی سرد بر پایه قهوه</button>
+    <button onclick="filterMenu('شرکتی')">نوشیدنی شرکتی</button>
+    <button onclick="filterMenu('تنقلات')">تنقلات</button>
+    <button onclick="filterMenu('سایر')">سایر</button>
+</div>
 
 </header>
 
@@ -50,9 +41,7 @@ id="pass"
 placeholder=""
 autocomplete="off">
 
-<button onclick="login()">
-ورود
-</button>
+<button onclick="login()">ورود</button>
 
 <div id="adminArea" style="display:none;">
 
@@ -65,6 +54,7 @@ placeholder="نام محصول">
 type="text"
 id="price"
 placeholder="قیمت">
+
 <select id="category">
     <option value="گرم">نوشیدنی گرم بر پایه قهوه</option>
     <option value="سرد">نوشیدنی سرد بر پایه قهوه</option>
@@ -73,7 +63,6 @@ placeholder="قیمت">
     <option value="سایر">سایر</option>
 </select>
 
-<input type="file" id="img" accept="image/*">
 <input
 type="file"
 id="img"
@@ -97,4 +86,3 @@ accept="image/*">
 
 </body>
 </html>
-<img src="InShot_20260622_145221229.jpg" class="logo" alt="لوگو">
