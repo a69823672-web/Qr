@@ -9,7 +9,7 @@ function render() {
     menu.forEach((item, index) => {
 
         menuBox.innerHTML += `
-        <div class="card">
+        <div class="card" data-category="${item.category || 'سایر'}">
 
             <img src="${item.img}" alt="${item.name}">
 
@@ -36,16 +36,12 @@ function render() {
 
 // باز کردن پنل
 function openPanel(){
-
     document.getElementById("panel").style.display="block";
-
 }
 
 // بستن پنل
 function closePanel(){
-
     document.getElementById("panel").style.display="none";
-
 }
 
 // ورود
@@ -56,7 +52,6 @@ function login(){
     if(pass==="4030"){
 
         document.getElementById("adminArea").style.display="block";
-
         document.getElementById("pass").style.display="none";
 
     }else{
@@ -71,15 +66,13 @@ function login(){
 function addItem(){
 
     const name=document.getElementById("name").value.trim();
-
     const price=document.getElementById("price").value.trim();
-
+    const category=document.getElementById("category").value;
     const file=document.getElementById("img").files[0];
 
     if(!name || !price || !file){
 
         alert("همه فیلدها را کامل کنید");
-
         return;
 
     }
@@ -91,9 +84,8 @@ function addItem(){
         menu.push({
 
             name:name,
-
             price:price,
-
+            category:category,
             img:reader.result
 
         });
@@ -101,9 +93,8 @@ function addItem(){
         localStorage.setItem("menu",JSON.stringify(menu));
 
         document.getElementById("name").value="";
-
         document.getElementById("price").value="";
-
+        document.getElementById("category").selectedIndex=0;
         document.getElementById("img").value="";
 
         render();
@@ -129,32 +120,26 @@ function removeItem(index){
 
 }
 
-// اجرای اولیه
-render();
+// فیلتر دسته‌بندی
 function filterMenu(category){
 
-const cards=document.querySelectorAll(".card");
+    const cards=document.querySelectorAll(".card");
 
-cards.forEach(card=>{
+    cards.forEach(card=>{
 
-if(category==="همه"){
+        if(category==="همه" || card.dataset.category===category){
 
-card.style.display="block";
+            card.style.display="block";
 
-}else{
+        }else{
 
-if(card.dataset.category===category){
+            card.style.display="none";
 
-card.style.display="block";
+        }
 
-}else{
-
-card.style.display="none";
+    });
 
 }
 
-}
-
-});
-
-}
+// اجرای اولیه
+render();
